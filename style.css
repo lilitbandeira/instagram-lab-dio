@@ -1,0 +1,162 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; /* inclui o preenchimento e a borda ao valor de altura e largura setado no seu elemento */
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh; /* o body sempre terá altura total a janela de visualização, em qualquer dispositivo, todos os itens dentro desse elemento ficam em linha ocupando o espaço necessário dentro do container */
+  background-color: rgb(243, 243, 243);
+  margin: 0;
+  padding: 0;
+  display: flex; /* transforma o elemento em flex container e todos os seus filhos diretos em flex items - flexbox */
+  justify-content: center; /* determina que os itens se disponham em coluna, um abaixo do outro */
+}
+
+.instagram-wrapper {
+  display: flex; 
+  align-items: center; /* alinha os itens no eixo-y */
+  justify-content: start; /* alinha os itens no eixo-x */
+  width: 60%; /* 60% do body */
+  height: 100vh;
+}
+
+.instagram-phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+.instagram-phone img {
+  height: 50rem; /* o rem é uma unidade responsiva parecida com o em, porém multiplica o valor raiz(r) de font-size: 14px; que foi estabelecido para a página toda no *, e não do elemento pai mais como o em, ou seja 50rem = 50*14px = 700px */
+}
+
+.instagram-continue {
+  display: flex;
+  align-items: center; /* neste caso é eixo-x - horizontal */
+  justify-content: space-around; /* neste caso é eixo-y - vertical & space-aroung distribui os espaços deixando o espaço entre o itens maior que os espaços laterais */
+  flex-direction: column; /* seta a direção dos items do flex container em colunas, de cima para baixo, o padrão é row (em linhas) */
+  width: 50%;
+  min-height: 34rem;
+}
+
+.group {
+  display: flex;
+  justify-content: space-between; /* distribui os espaço somente entre os itens */
+  align-items: center;
+  flex-direction: column;
+  background-color: #ffffff;
+  width: 100%;
+  padding: 1.3rem 0;
+  border: 1px solid lightgray;
+}
+
+.grounp:nth-child(1) {
+  min-height: 19rem;
+}
+
+.instagram-logo {
+  height: 3rem;
+}
+
+.profile-photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+  border-radius: 50%; /* deixa a div com bordas circulares */
+  overflow: hidden; /* overflow define como o conteúdo transborda o elemento em que está contido, hidden é o valor para esconder tudo que excede esse limite */
+}
+
+.profile-photo img {
+  height: 6rem;
+}
+
+.instagram-login {
+  background-color: #0095f6;
+  color: #ffffff;
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.instagram-logout {
+  color: #0095f6;
+  margin-top: 1rem;
+}
+
+.not-account {
+  color: rgb(160,160,160);
+}
+.link-blue {
+  color: #0095f6;
+}
+
+.get-the-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1.3rem 0;
+}
+
+.download {
+  display: flex;
+  width: 100%;
+  justify-content: center; /* preferi deixar o justify-content: center; */
+  align-items: center;
+  padding: 1rem;
+}
+
+.app-download {
+  height: 3rem;
+  width: 10rem;
+  border-radius: 6px;
+  background-size: cover; /* usaremos cover para setar os nth-child com background-image com os botões da apple store e google play*/
+}
+
+.app-download:nth-child(1) {
+  background-image: url('./img/apple-button.png') ;
+  margin-right: .5rem; /* como deixei o justify-content: center; no seletor .download, usei esse margin-right para dar um pequeno espaço fixo entre os botões*/
+}
+
+.app-download:nth-child(2) {
+  background-image: url('./img/googleplay-button.png');
+  margin-left: .5rem; /* como deixei o justify-content: center; no seletor .download, usei esse margin-left para dar um pequeno espaço fixo entre os botões*/
+}
+
+/* Configurando através de media queries, responsividades para tablets e smartphones */
+
+@media (max-width: 1024px) {
+  .instagram-wrapper {
+    width: 90%;
+  }
+}
+
+@media (max-width: 650px) {
+  body {
+    background-color: #ffffff;
+  }
+
+  .instagram-wrapper {
+    width: 90%;
+  }
+
+  .instagram-phone {
+    display: none; /* Retirando a div do telefone, usar esta propriedade com o valor none significa retirar totalmente o elemento do layout, ele deia de afetar o layout, diferente do visibility: hidden; que oculta o elemento, mas ele continua ocupando o espaço no layout */
+  }  
+  .instagram-continue {
+    width: 100%;
+  }
+  
+  .group {
+    border: 1px solid transparent;
+  }
+
+}
